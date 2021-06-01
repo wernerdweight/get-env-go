@@ -46,7 +46,7 @@ func main() {
     if nil != err {
         // handle the error (e.g. no env file exists or not readable)
     }
-    err, env := getenv.GetEnv("APP_ENV")
+	env, err := getenv.GetEnv("APP_ENV")
     if nil != err {
     	// handle the error (requested env var doesn't exist)
     }
@@ -72,7 +72,7 @@ func main() {
     if nil != err {
         // handle the error (e.g. no env file exists or not readable)
     }
-    err, env := getenv.GetEnv("APP_ENV")
+	env, err := getenv.GetEnv("APP_ENV")
     if nil != err {
     	// handle the error (requested env var doesn't exist)
     }
@@ -101,7 +101,7 @@ func main() {
         getenv.CantLoadEnvFileError, // "can't load [env-file-name] file"
         getenv.NoSuchEnvVarError, // "non-existing ENV variable [env-var-name] requested"
     )
-    err, _ := getenv.GetEnv("APP_ENV")
+    _, err := getenv.GetEnv("APP_ENV")
     if nil != err {
         // would print "non-existing ENV variable [env-var-name] requested"
     	fmt.Print(

@@ -10,15 +10,15 @@ func TestDefaultFile(t *testing.T) {
 	assertion := assert.New(t)
 	assertion.Nil(getenv.Init())
 
-	err1, value1 := getenv.GetEnv("ENV_VAR_1")
+	value1, err1 := getenv.GetEnv("ENV_VAR_1")
 	assertion.Nil(err1)
 	assertion.Equal("value-1", value1)
 
-	err2, value2 := getenv.GetEnv("ENV_VAR_2")
+	value2, err2 := getenv.GetEnv("ENV_VAR_2")
 	assertion.Nil(err2)
 	assertion.Equal("value-2", value2)
 
-	err3, value3 := getenv.GetEnv("ENV_VAR_3")
+	value3, err3 := getenv.GetEnv("ENV_VAR_3")
 	assertion.NotNil(err3)
 	assertion.Equal(getenv.NoSuchEnvVarError, err3.(*getenv.Error).Code)
 	assertion.Equal("", value3)
